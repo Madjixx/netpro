@@ -22,7 +22,7 @@ import { CommonModule } from '@angular/common';
           <nav class="nav">
             <a href="#services">Services</a>
             <a href="#contact">Contact</a>
-            <a href="tel:0465972862" class="cta-button">0465 97 28 62</a>
+            <a href="tel:0465972862" class="cta-button">Contactez-nous</a>
           </nav>
         </div>
       </header>
