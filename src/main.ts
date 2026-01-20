@@ -103,7 +103,7 @@ import { CommonModule } from '@angular/common';
             </div>
             <div class="advantage">
               <div class="advantage-icon">🛡️</div>
-              <h3>Strikte naleving van hygiënenormen</h3>
+              <h3>Respect strict des normes d’hygiène</h3>
             </div>
             <div class="advantage">
               <div class="advantage-icon">⭐</div>
@@ -111,7 +111,7 @@ import { CommonModule } from '@angular/common';
             </div>
             <div class="advantage">
               <div class="advantage-icon">🎯</div>
-              <h3>Diensten aangepast aan uw activitéit</h3>
+              <h3>Des services adaptés à votre activité</h3>
             </div>
           </div>
         </div>
