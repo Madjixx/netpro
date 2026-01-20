@@ -277,7 +277,7 @@ import { CommonModule } from '@angular/common';
 
     .cta-button {
       background: white;
-      color: #0e6ba8;
+      color: #0e6ba8 !important;
       padding: 0.6rem 1.5rem;
       border-radius: 25px;
       font-weight: 600;
