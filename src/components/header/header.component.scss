@@ -35,15 +35,9 @@
   }
 }
 
-.logo-icon {
-  width: 45px;
-  height: 55px;
-  
-  svg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 4px 10px rgba(29, 161, 242, 0.3));
-  }
+.logo-icon img {
+  width: 135px;
+  height: 61px;
 }
 
 .logo-text {
@@ -101,7 +95,7 @@
 
   &:hover {
     color: var(--netpro-blue);
-    
+
     &::after {
       width: 100%;
     }
@@ -207,7 +201,7 @@
     font-size: 1.5rem;
   }
 
-  .logo-icon {
+  .logo-icon img {
     width: 35px;
     height: 45px;
   }
@@ -223,7 +217,7 @@
     font-size: 1.3rem;
   }
 
-  .logo-icon {
+  .logo-icon img {
     width: 30px;
     height: 40px;
   }

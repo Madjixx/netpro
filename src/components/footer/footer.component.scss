@@ -12,7 +12,7 @@
     right: 0;
     height: 100%;
     background: radial-gradient(circle at 20% 50%, rgba(29, 161, 242, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 30%, rgba(31, 157, 85, 0.1) 0%, transparent 50%);
+      radial-gradient(circle at 80% 30%, rgba(31, 157, 85, 0.1) 0%, transparent 50%);
     z-index: 0;
   }
 }
@@ -37,15 +37,10 @@
     margin-bottom: 1.5rem;
   }
 
-  .logo-icon {
-    width: 45px;
-    height: 55px;
-    
-    svg {
-      width: 100%;
-      height: 100%;
-      filter: drop-shadow(0 4px 10px rgba(29, 161, 242, 0.4));
-    }
+  .logo-icon img {
+    width: 135px;
+    height: 61px;
+
   }
 
   .brand-text {
@@ -304,7 +299,7 @@
     align-items: flex-start;
   }
 
-  .logo-icon {
+  .logo-icon img {
     width: 35px;
     height: 45px;
   }
