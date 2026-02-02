@@ -1,0 +1,60 @@
+<section class="values section" id="valeurs">
+  <div class="container">
+    <div class="values-header animate-on-scroll">
+      <span class="section-badge">Nos Valeurs</span>
+      <h2>Ce Qui Nous Définit</h2>
+      <p class="section-intro">
+        Des engagements forts qui guident chacune de nos interventions et font la différence dans la qualité de nos services.
+      </p>
+    </div>
+
+    <div class="values-grid">
+      <div *ngFor="let value of values; let i = index" 
+           class="value-card animate-on-scroll"
+           [style.animation-delay.s]="i * 0.15">
+        <div class="value-icon">
+          <svg *ngIf="value.icon === 'star'" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          
+          <svg *ngIf="value.icon === 'layers'" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          
+          <svg *ngIf="value.icon === 'shield'" viewBox="0 0 24 24" fill="none">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          
+          <svg *ngIf="value.icon === 'clock'" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          
+          <div class="icon-glow"></div>
+        </div>
+        
+        <div class="value-content">
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.description }}</p>
+        </div>
+
+        <div class="value-number">{{ i + 1 }}</div>
+      </div>
+    </div>
+
+    <div class="values-footer animate-on-scroll">
+      <div class="footer-content">
+        <div class="footer-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Un Engagement de Qualité</h3>
+        <p>Chaque intervention est effectuée selon nos standards les plus élevés, avec des produits professionnels et un personnel qualifié.</p>
+      </div>
+    </div>
+  </div>
+</section>
