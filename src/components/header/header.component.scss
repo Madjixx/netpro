@@ -35,8 +35,8 @@
   }
 }
 
-.logo-icon img {
-  width: 135px;
+.logo-icon img{
+  width: 165px;
   height: 61px;
 }
 
@@ -95,7 +95,7 @@
 
   &:hover {
     color: var(--netpro-blue);
-
+    
     &::after {
       width: 100%;
     }
@@ -105,6 +105,110 @@
 .header-cta {
   display: flex;
   align-items: center;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.language-selector {
+  position: relative;
+}
+
+.lang-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: rgba(29, 161, 242, 0.1);
+  border: 2px solid transparent;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--netpro-blue);
+
+  &:hover {
+    background: rgba(29, 161, 242, 0.15);
+    border-color: var(--netpro-blue);
+  }
+
+  .flag {
+    font-size: 1.2rem;
+  }
+
+  .lang-code {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .chevron {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+
+    &.open {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  min-width: 180px;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 1rem 1.2rem;
+  background: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  color: var(--netpro-text);
+
+  &:hover {
+    background: rgba(29, 161, 242, 0.1);
+  }
+
+  &.active {
+    background: linear-gradient(135deg, rgba(29, 161, 242, 0.15), rgba(31, 157, 85, 0.15));
+    font-weight: 700;
+    color: var(--netpro-blue);
+  }
+
+  .flag {
+    font-size: 1.3rem;
+  }
+
+  .lang-name {
+    flex: 1;
+    text-align: left;
+  }
 }
 
 .btn-contact {
@@ -192,7 +296,7 @@
     display: flex;
   }
 
-  .header-cta {
+  .header-actions {
     display: none;
   }
 
@@ -201,7 +305,7 @@
     font-size: 1.5rem;
   }
 
-  .logo-icon img {
+  .logo-icon img{
     width: 35px;
     height: 45px;
   }
@@ -217,7 +321,7 @@
     font-size: 1.3rem;
   }
 
-  .logo-icon img {
+  .logo-icon img{
     width: 30px;
     height: 40px;
   }

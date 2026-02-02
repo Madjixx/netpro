@@ -3,25 +3,47 @@
     <nav class="navbar">
       <div class="logo">
         <div class="logo-icon">
-         <img src="assets/logo.png" alt="">
+        <img src="assets/logo.png" alt="">
         </div>
-      </div>
-
+    </div>
       <ul class="nav-menu" [class.active]="isMobileMenuOpen">
-        <li><a (click)="scrollToSection('accueil')" class="nav-link">Accueil</a></li>
-        <li><a (click)="scrollToSection('a-propos')" class="nav-link">À Propos</a></li>
-        <li><a (click)="scrollToSection('services')" class="nav-link">Services</a></li>
-        <li><a (click)="scrollToSection('valeurs')" class="nav-link">Nos Valeurs</a></li>
-        <li><a (click)="scrollToSection('contact')" class="nav-link">Contact</a></li>
+        <li><a (click)="scrollToSection('accueil')" class="nav-link">{{ 'HEADER.HOME' | translate }}</a></li>
+        <li><a (click)="scrollToSection('a-propos')" class="nav-link">{{ 'HEADER.ABOUT' | translate }}</a></li>
+        <li><a (click)="scrollToSection('services')" class="nav-link">{{ 'HEADER.SERVICES' | translate }}</a></li>
+        <li><a (click)="scrollToSection('valeurs')" class="nav-link">{{ 'HEADER.VALUES' | translate }}</a></li>
+        <li><a (click)="scrollToSection('contact')" class="nav-link">{{ 'HEADER.CONTACT' | translate }}</a></li>
       </ul>
 
-      <div class="header-cta">
-        <a href="tel:0465972862" class="btn-contact">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" fill="currentColor"/>
-          </svg>
-          <span>04 65 97 28 62</span>
-        </a>
+      <div class="header-actions">
+        <!-- Language Selector -->
+        <div class="language-selector" (click)="toggleLangMenu()">
+          <button class="lang-button">
+            <span class="flag"><img width="20px" src="assets/{{getCurrentLanguage()?.flag}}.jpg" alt=""></span>
+            <span class="lang-code">{{ getCurrentLanguage()?.code?.toUpperCase() }}</span>
+            <svg class="chevron" [class.open]="isLangMenuOpen" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          
+          <div class="lang-dropdown" [class.active]="isLangMenuOpen">
+            <button *ngFor="let lang of languages" 
+                    class="lang-option" 
+                    [class.active]="lang.code === currentLang"
+                    (click)="changeLanguage(lang.code); $event.stopPropagation()">
+              <span class="flag"> <img width="20px" src="assets/{{lang.flag}}.jpg" alt=""> </span>
+              <span class="lang-name">{{ lang.name }}</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="header-cta">
+          <a href="tel:0465972862" class="btn-contact">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" fill="currentColor"/>
+            </svg>
+            <span>{{ 'HEADER.PHONE' | translate }}</span>
+          </a>
+        </div>
       </div>
 
       <div class="hamburger" [class.active]="isMobileMenuOpen" (click)="toggleMobileMenu()">
