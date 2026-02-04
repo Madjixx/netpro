@@ -5,14 +5,142 @@
 
   <div class="container">
     <div class="contact-header animate-on-scroll">
-      <span class="section-badge">Contactez-nous</span>
-      <h2>Prêt à Transformer<br>Vos Espaces ?</h2>
+      <span class="section-badge">{{ 'CONTACT.BADGE' | translate }}</span>
+      <h2 [innerHTML]="'CONTACT.TITLE' | translate"></h2>
       <p class="section-intro">
-        Obtenez un devis personnalisé et découvrez comment NetPro Cleaning peut répondre à vos besoins spécifiques.
+        {{ 'CONTACT.INTRO' | translate }}
       </p>
     </div>
 
     <div class="contact-content">
+      <div class="contact-form animate-on-scroll">
+        <div class="form-header">
+          <h3>{{ 'CONTACT.FORM_TITLE' | translate }}</h3>
+          <p>{{ 'CONTACT.FORM_SUBTITLE' | translate }}</p>
+        </div>
+
+        <form (ngSubmit)="onSubmit()" class="quote-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nom complet *</label>
+              <input 
+                type="text" 
+                id="name" 
+                [(ngModel)]="formData.name" 
+                name="name"
+                placeholder="Votre nom"
+                required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input 
+                type="email" 
+                id="email" 
+                [(ngModel)]="formData.email" 
+                name="email"
+                placeholder="votre@email.com"
+                required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Téléphone</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                [(ngModel)]="formData.phone" 
+                name="phone"
+                placeholder="+32 XXX XX XX XX">
+            </div>
+
+            <div class="form-group">
+              <label for="service">Type de service *</label>
+              <select 
+                id="service" 
+                [(ngModel)]="formData.service" 
+                name="service"
+                required>
+                <option value="">Sélectionnez un service</option>
+                <option *ngFor="let service of services" [value]="service.value">
+                  {{ service.label }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="address">Adresse</label>
+              <input 
+                type="text" 
+                id="address" 
+                [(ngModel)]="formData.address" 
+                name="address"
+                placeholder="Rue, Ville, Code postal">
+            </div>
+
+            <div class="form-group">
+              <label for="surface">Surface approximative (m²)</label>
+              <input 
+                type="text" 
+                id="surface" 
+                [(ngModel)]="formData.surface" 
+                name="surface"
+                placeholder="Ex: 100 m²">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="frequency">Fréquence souhaitée</label>
+            <select 
+              id="frequency" 
+              [(ngModel)]="formData.frequency" 
+              name="frequency">
+              <option value="">Sélectionnez une fréquence</option>
+              <option *ngFor="let freq of frequencies" [value]="freq.value">
+                {{ freq.label }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Détails de votre demande *</label>
+            <textarea 
+              id="message" 
+              [(ngModel)]="formData.message" 
+              name="message"
+              rows="5"
+              placeholder="Décrivez votre besoin en détail..."
+              required></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button 
+              type="submit" 
+              class="btn btn-primary btn-submit"
+              [disabled]="isSubmitting || !isFormValid()">
+              <span *ngIf="!isSubmitting">Envoyer ma demande</span>
+              <span *ngIf="isSubmitting">Envoi en cours...</span>
+              <svg *ngIf="!isSubmitting" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="form-message success" *ngIf="showSuccess">
+            ✓ Votre demande a été envoyée avec succès ! Nous vous contacterons rapidement.
+          </div>
+
+          <div class="form-message error" *ngIf="showError">
+            ✗ Une erreur est survenue. Veuillez réessayer ou nous contacter directement.
+          </div>
+
+          <p class="form-note">* Champs obligatoires</p>
+        </form>
+      </div>
+
       <div class="contact-info animate-on-scroll">
         <div class="info-card main-card">
           <div class="card-icon">
@@ -22,10 +150,10 @@
             </svg>
           </div>
           <div class="card-content">
-            <h3>NetPro Cleaning</h3>
-            <p class="company-name">Radiaa Services</p>
-            <p class="contact-name">Ramatoulaye Diallo</p>
-            <span class="contact-role">Fondatrice & Directrice</span>
+            <h3>{{ 'CONTACT.COMPANY' | translate }}</h3>
+            <p class="company-name">{{ 'CONTACT.LEGAL' | translate }}</p>
+            <p class="contact-name">{{ 'CONTACT.DIRECTOR' | translate }}</p>
+            <span class="contact-role">{{ 'CONTACT.ROLE' | translate }}</span>
           </div>
         </div>
 
@@ -37,12 +165,12 @@
               </svg>
             </div>
             <div class="item-content">
-              <span class="item-label">Téléphone</span>
+              <span class="item-label">{{ 'CONTACT.PHONE_LABEL' | translate }}</span>
               <strong>04 65 97 28 62</strong>
             </div>
           </a>
 
-          <a href="mailto:contact@netprocleaning.be" class="info-item animate-on-scroll">
+          <a href="mailto:contact.netprocleaning@gmail.com" class="info-item animate-on-scroll">
             <div class="item-icon">
               <svg viewBox="0 0 24 24" fill="none">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -50,8 +178,8 @@
               </svg>
             </div>
             <div class="item-content">
-              <span class="item-label">Email</span>
-              <strong>contact&#64;netprocleaning.be</strong>
+              <span class="item-label">{{ 'CONTACT.EMAIL_LABEL' | translate }}</span>
+              <strong>contact.netprocleaning&#64;gmail.com</strong>
             </div>
           </a>
 
@@ -63,7 +191,7 @@
               </svg>
             </div>
             <div class="item-content">
-              <span class="item-label">Site Web</span>
+              <span class="item-label">{{ 'CONTACT.WEBSITE_LABEL' | translate }}</span>
               <strong>www.netprocleaning.be</strong>
             </div>
           </a>
@@ -76,8 +204,8 @@
               </svg>
             </div>
             <div class="item-content">
-              <span class="item-label">Disponibilité</span>
-              <strong>24/7 sur demande</strong>
+              <span class="item-label">{{ 'CONTACT.AVAILABILITY_LABEL' | translate }}</span>
+              <strong>{{ 'CONTACT.AVAILABILITY' | translate }}</strong>
             </div>
           </div>
         </div>
@@ -88,21 +216,21 @@
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span>Devis Gratuit</span>
+            <span>{{ 'CONTACT.FEATURE_1' | translate }}</span>
           </div>
           <div class="feature-item">
             <svg viewBox="0 0 24 24" fill="none">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span>Intervention Rapide</span>
+            <span>{{ 'CONTACT.FEATURE_2' | translate }}</span>
           </div>
           <div class="feature-item">
             <svg viewBox="0 0 24 24" fill="none">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span>Service Premium</span>
+            <span>{{ 'CONTACT.FEATURE_3' | translate }}</span>
           </div>
         </div>
       </div>
@@ -119,11 +247,11 @@
                 <path d="M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <h3>Besoin d'un Devis ?</h3>
-            <p>Contactez-nous pour obtenir une estimation personnalisée adaptée à vos besoins spécifiques.</p>
+            <h3>{{ 'CONTACT.VISUAL_TITLE' | translate }}</h3>
+            <p>{{ 'CONTACT.VISUAL_DESC' | translate }}</p>
             <div class="visual-cta">
               <a href="tel:0465972862" class="btn btn-primary">
-                Appelez-nous
+                {{ 'CONTACT.VISUAL_CTA' | translate }}
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>

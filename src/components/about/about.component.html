@@ -1,10 +1,10 @@
 <section class="about section" id="a-propos">
   <div class="container">
     <div class="about-header animate-on-scroll">
-      <span class="section-badge">Notre Histoire</span>
-      <h2>Qui sommes-nous ?</h2>
+      <span class="section-badge">{{ 'ABOUT.BADGE' | translate }}</span>
+      <h2>{{ 'ABOUT.TITLE' | translate }}</h2>
       <p class="section-intro">
-        NetPro Cleaning est née d'une ambition simple : redéfinir les standards de la propreté en apportant la rigueur du luxe à tous les types d'espaces.
+        {{ 'ABOUT.INTRO' | translate }}
       </p>
     </div>
 
@@ -17,10 +17,8 @@
             </svg>
           </div>
           <div class="text-content">
-            <h3>Notre Expertise</h3>
-            <p>
-              Sous la structure légale <strong>Radiaa Services</strong>, nous intervenons avec une exigence de haute précision afin de garantir des environnements sains, soignés et prestigieux.
-            </p>
+            <h3>{{ 'ABOUT.EXPERTISE_TITLE' | translate }}</h3>
+            <p [innerHTML]="'ABOUT.EXPERTISE_TEXT' | translate"></p>
           </div>
         </div>
 
@@ -32,10 +30,8 @@
             </svg>
           </div>
           <div class="text-content">
-            <h3>Spécialistes de l'entretien sur-mesure</h3>
-            <p>
-              Nous avons développé une expertise spécifique pour répondre aux besoins des secteurs les plus exigeants, allant des salons d'esthétique et de coiffure aux espaces de coworking, en passant par les appartements, les bureaux, les résidences de standing et les fins de chantier.
-            </p>
+            <h3>{{ 'ABOUT.SPECIALIST_TITLE' | translate }}</h3>
+            <p>{{ 'ABOUT.SPECIALIST_TEXT' | translate }}</p>
           </div>
         </div>
       </div>
@@ -45,25 +41,25 @@
           <div class="grid-item item-1">
             <div class="item-overlay">
               <span class="item-icon">🏢</span>
-              <h4>Bureaux</h4>
+              <h4>{{ 'ABOUT.GRID_1' | translate }}</h4>
             </div>
           </div>
           <div class="grid-item item-2">
             <div class="item-overlay">
               <span class="item-icon">💼</span>
-              <h4>Coworking</h4>
+              <h4>{{ 'ABOUT.GRID_2' | translate }}</h4>
             </div>
           </div>
           <div class="grid-item item-3">
             <div class="item-overlay">
               <span class="item-icon">✨</span>
-              <h4>Salons</h4>
+              <h4>{{ 'ABOUT.GRID_3' | translate }}</h4>
             </div>
           </div>
           <div class="grid-item item-4">
             <div class="item-overlay">
               <span class="item-icon">🏠</span>
-              <h4>Résidences</h4>
+              <h4>{{ 'ABOUT.GRID_4' | translate }}</h4>
             </div>
           </div>
         </div>
@@ -72,15 +68,15 @@
           <div class="stats-item">
             <span class="stats-icon">⭐</span>
             <div class="stats-info">
-              <strong>Excellence</strong>
-              <span>Certifiée</span>
+              <strong>{{ 'ABOUT.STAT_1_LABEL' | translate }}</strong>
+              <span>{{ 'ABOUT.STAT_1_SUBLABEL' | translate }}</span>
             </div>
           </div>
           <div class="stats-item">
             <span class="stats-icon">🎯</span>
             <div class="stats-info">
-              <strong>Précision</strong>
-              <span>Garantie</span>
+              <strong>{{ 'ABOUT.STAT_2_LABEL' | translate }}</strong>
+              <span>{{ 'ABOUT.STAT_2_SUBLABEL' | translate }}</span>
             </div>
           </div>
         </div>
@@ -95,10 +91,8 @@
             <path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3>Notre Mission</h3>
-        <p>
-          Garantir des espaces impeccables où chaque détail compte, en alliant professionnalisme, discrétion et réactivité pour répondre aux attentes les plus élevées.
-        </p>
+        <h3>{{ 'ABOUT.MISSION_TITLE' | translate }}</h3>
+        <p>{{ 'ABOUT.MISSION_TEXT' | translate }}</p>
       </div>
     </div>
   </div>

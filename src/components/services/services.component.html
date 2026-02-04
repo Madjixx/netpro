@@ -7,65 +7,130 @@
 
   <div class="container">
     <div class="services-header animate-on-scroll">
-      <span class="section-badge">Nos Services</span>
-      <h2>Une Gamme Complète<br>Pour Tous Vos Besoins</h2>
+      <span class="section-badge">{{ "SERVICES.BADGE" | translate }}</span>
+      <h2 [innerHTML]="'SERVICES.TITLE' | translate"></h2>
       <p class="section-intro">
-        Des solutions de nettoyage professionnel adaptées à chaque environnement, avec la même exigence de qualité et de précision.
+        {{ "SERVICES.INTRO" | translate }}
       </p>
     </div>
 
     <div class="services-grid">
-      <div *ngFor="let service of services; let i = index" 
-           class="service-card animate-on-scroll"
-           [style.animation-delay.s]="i * 0.1">
+      <div
+        *ngFor="let service of services; let i = index; trackBy: trackById"
+        class="service-card animate-on-scroll"
+        [style.animation-delay.s]="i * 0.1"
+      >
         <div class="card-header" [style.background]="service.gradient">
           <div class="card-icon">
-            <svg *ngIf="service.icon === 'building'" viewBox="0 0 24 24" fill="none">
-              <rect x="4" y="2" width="16" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
-              <path d="M9 22V12h6v10" stroke="currentColor" stroke-width="2"/>
-              <path d="M8 6h.01M8 10h.01M16 6h.01M16 10h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <svg
+              *ngIf="service.icon === 'building'"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <rect
+                x="4"
+                y="2"
+                width="16"
+                height="20"
+                rx="2"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path d="M9 22V12h6v10" stroke="currentColor" stroke-width="2" />
+              <path
+                d="M8 6h.01M8 10h.01M16 6h.01M16 10h.01"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
             </svg>
-            
-            <svg *ngIf="service.icon === 'shop'" viewBox="0 0 24 24" fill="none">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z" stroke="currentColor" stroke-width="2"/>
-              <path d="M9 22V12h6v10" stroke="currentColor" stroke-width="2"/>
+
+            <svg
+              *ngIf="service.icon === 'shop'"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path d="M9 22V12h6v10" stroke="currentColor" stroke-width="2" />
             </svg>
-            
-            <svg *ngIf="service.icon === 'tools'" viewBox="0 0 24 24" fill="none">
-              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="2"/>
+
+            <svg
+              *ngIf="service.icon === 'tools'"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                stroke="currentColor"
+                stroke-width="2"
+              />
             </svg>
-            
-            <svg *ngIf="service.icon === 'home'" viewBox="0 0 24 24" fill="none">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z" stroke="currentColor" stroke-width="2"/>
-              <path d="M9 22V12h6v10" stroke="currentColor" stroke-width="2"/>
+
+            <svg
+              *ngIf="service.icon === 'home'"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path d="M9 22V12h6v10" stroke="currentColor" stroke-width="2" />
             </svg>
-            
-            <svg *ngIf="service.icon === 'flash'" viewBox="0 0 24 24" fill="none">
-              <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <svg
+              *ngIf="service.icon === 'flash'"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </div>
           <div class="card-badge">
-            <span>Premium</span>
+            <span>{{ "SERVICES.BADGE_PREMIUM" | translate }}</span>
           </div>
         </div>
 
         <div class="card-body">
           <h3>{{ service.title }}</h3>
           <p class="card-description">{{ service.description }}</p>
-          
+
           <ul class="service-details">
             <li *ngFor="let detail of service.details">
               <svg viewBox="0 0 24 24" fill="none">
-                <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path
+                  d="M20 6L9 17l-5-5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
               <span>{{ detail }}</span>
             </li>
           </ul>
 
           <button class="card-cta">
-            <span>En savoir plus</span>
+            <span>{{ "SERVICES.CTA_BTN" | translate }}</span>
             <svg viewBox="0 0 24 24" fill="none">
-              <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M5 12h14M12 5l7 7-7 7"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </button>
         </div>
@@ -74,13 +139,19 @@
 
     <div class="services-cta animate-on-scroll">
       <div class="cta-content">
-        <h3>Besoin d'un devis personnalisé ?</h3>
-        <p>Contactez-nous pour une solution adaptée à vos besoins spécifiques</p>
+        <h3>{{ "SERVICES.CTA_TITLE" | translate }}</h3>
+        <p>{{ "SERVICES.CTA_DESC" | translate }}</p>
       </div>
       <a href="tel:0465972862" class="btn btn-primary">
-        Contactez-nous
+        {{ "SERVICES.CTA_CONTACT" | translate }}
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-          <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path
+            d="M5 12h14M12 5l7 7-7 7"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
         </svg>
       </a>
     </div>

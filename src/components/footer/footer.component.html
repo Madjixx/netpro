@@ -3,45 +3,43 @@
     <div class="container">
       <div class="footer-content">
         <div class="footer-brand">
-          <div class="brand-logo">
-            <div class="logo-icon">
-             <img src="assets/logo.png" alt="">
-            </div>
+          <div class="logo-icon">
+           <img src="assets/logo.png" alt="NetPro Cleaning Logo">
           </div>
           <p class="brand-description">
-            L'excellence du nettoyage pour tous vos espaces. Service de nettoyage haute précision pour entreprises, commerces et résidences de standing.
+            {{ 'FOOTER.DESCRIPTION' | translate }}
           </p>
           <div class="brand-badges">
-            <span class="badge">Premium</span>
-            <span class="badge">24/7</span>
-            <span class="badge">Certifié</span>
+            <span class="badge">{{ 'FOOTER.BADGE_1' | translate }}</span>
+            <span class="badge">{{ 'FOOTER.BADGE_2' | translate }}</span>
+            <span class="badge">{{ 'FOOTER.BADGE_3' | translate }}</span>
           </div>
         </div>
 
         <div class="footer-links">
-          <h4>Navigation</h4>
+          <h4>{{ 'FOOTER.NAV_TITLE' | translate }}</h4>
           <ul>
-            <li><a (click)="scrollToSection('accueil')">Accueil</a></li>
-            <li><a (click)="scrollToSection('a-propos')">À Propos</a></li>
-            <li><a (click)="scrollToSection('services')">Services</a></li>
-            <li><a (click)="scrollToSection('valeurs')">Nos Valeurs</a></li>
-            <li><a (click)="scrollToSection('contact')">Contact</a></li>
+            <li><a (click)="scrollToSection('accueil')">{{ 'HEADER.HOME' | translate }}</a></li>
+            <li><a (click)="scrollToSection('a-propos')">{{ 'HEADER.ABOUT' | translate }}</a></li>
+            <li><a (click)="scrollToSection('services')">{{ 'HEADER.SERVICES' | translate }}</a></li>
+            <li><a (click)="scrollToSection('valeurs')">{{ 'HEADER.VALUES' | translate }}</a></li>
+            <li><a (click)="scrollToSection('contact')">{{ 'HEADER.CONTACT' | translate }}</a></li>
           </ul>
         </div>
 
         <div class="footer-services">
-          <h4>Nos Services</h4>
+          <h4>{{ 'FOOTER.SERVICES_TITLE' | translate }}</h4>
           <ul>
-            <li>Entreprise & Bureaux</li>
-            <li>Commerces & Établissements</li>
-            <li>Résidentiel de Standing</li>
-            <li>Fin de Chantier</li>
-            <li>Interventions Ponctuelles</li>
+            <li>{{ 'FOOTER.SERVICE_1' | translate }}</li>
+            <li>{{ 'FOOTER.SERVICE_2' | translate }}</li>
+            <li>{{ 'FOOTER.SERVICE_3' | translate }}</li>
+            <li>{{ 'FOOTER.SERVICE_4' | translate }}</li>
+            <li>{{ 'FOOTER.SERVICE_5' | translate }}</li>
           </ul>
         </div>
 
         <div class="footer-contact">
-          <h4>Contact</h4>
+          <h4>{{ 'FOOTER.CONTACT_TITLE' | translate }}</h4>
           <ul class="contact-list">
             <li>
               <svg viewBox="0 0 24 24" fill="none">
@@ -54,7 +52,7 @@
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2"/>
                 <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2"/>
               </svg>
-              <a href="mailto:contact@netprocleaning.be">contact&#64;netprocleaning.be</a>
+              <a href="mailto:contact.netprocleaning@gmail.com">contact.netprocleaning&#64;gmail.com</a>
             </li>
             <li>
               <svg viewBox="0 0 24 24" fill="none">
@@ -73,12 +71,12 @@
     <div class="container">
       <div class="footer-bottom-content">
         <p class="copyright">
-          © {{ currentYear }} <strong>NetPro Cleaning</strong> (Radiaa Services). Tous droits réservés.
+          © {{ currentYear }} <strong>NetPro Cleaning</strong> (Radiaa Services). {{ 'FOOTER.COPYRIGHT' | translate }}
         </p>
         <div class="footer-legal">
-          <span>Mentions Légales</span>
+          <span>{{ 'FOOTER.LEGAL_MENTIONS' | translate }}</span>
           <span class="divider">•</span>
-          <span>Politique de Confidentialité</span>
+          <span>{{ 'FOOTER.PRIVACY' | translate }}</span>
         </div>
       </div>
     </div>

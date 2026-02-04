@@ -1,28 +1,39 @@
-import { Component, HostListener } from '@angular/core';
-import { TranslationService } from '../../services/translation.service';
+import {
+  AfterViewInit,
+  Component,
+  HostListener,
+  inject,
+  OnInit,
+} from "@angular/core";
+import { TranslationService } from "../../services/translation.service";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.scss"],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, AfterViewInit {
   isScrolled = false;
   isMobileMenuOpen = false;
-  currentLang: string = 'fr';
+  currentLang: string = "";
   isLangMenuOpen = false;
 
   languages = [
-    { code: 'fr', name: 'Français', flag: 'fr' },
-    { code: 'en', name: 'English', flag: 'en' },
-    { code: 'nl', name: 'Nederlands', flag: 'nl' }
+    { code: "fr", name: "Français", flag: "fr" },
+    { code: "en", name: "English", flag: "en" },
+    { code: "nl", name: "Nederlands", flag: "nl" },
   ];
+  private readonly translationService = inject(TranslationService);
 
-  constructor(private translationService: TranslationService) {
+  ngOnInit() {
     this.currentLang = this.translationService.getCurrentLang();
   }
 
-  @HostListener('window:scroll', [])
+  ngAfterViewInit() {
+    this.currentLang = this.translationService.getCurrentLang();
+  }
+
+  @HostListener("window:scroll", [])
   onWindowScroll() {
     this.isScrolled = window.scrollY > 50;
   }
@@ -36,8 +47,6 @@ export class HeaderComponent {
   }
 
   async changeLanguage(langCode: string) {
-    console.log('Changing language to:', langCode);
-    
     this.currentLang = langCode;
     await this.translationService.use(langCode);
     this.isLangMenuOpen = false;
@@ -45,13 +54,13 @@ export class HeaderComponent {
   }
 
   getCurrentLanguage() {
-    return this.languages.find(lang => lang.code === this.currentLang);
+    return this.languages.find((lang) => lang.code === this.currentLang);
   }
 
   scrollToSection(sectionId: string) {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
       this.isMobileMenuOpen = false;
     }
   }

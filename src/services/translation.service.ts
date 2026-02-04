@@ -1,48 +1,48 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class TranslationService {
-  private currentLang = new BehaviorSubject<string>('fr');
+  private currentLang = "fr";
   private translations: any = {};
 
-  currentLang$: Observable<string> = this.currentLang.asObservable();
+  private langChangedSubject = new BehaviorSubject<string>("fr");
+  langChanged$ = this.langChangedSubject.asObservable();
 
-  constructor() {
-    // Charger la langue par défaut depuis le localStorage ou utiliser 'fr'
-    const savedLang = localStorage.getItem('netpro-lang') || 'fr';
-    this.use(savedLang);
-  }
+  async init(): Promise<void> {
+    const storedLang = localStorage.getItem("lang");
+    this.currentLang = storedLang || "fr";
 
-  async use(lang: string): Promise<void> {
-    try {
-      const response = await fetch(`/assets/i18n/${lang}.json`);
-      this.translations = await response.json();
-      this.currentLang.next(lang);
-      localStorage.setItem('netpro-lang', lang);
-    } catch (error) {
-      console.error(`Error loading translation file for ${lang}:`, error);
-    }
-  }
-
-  instant(key: string): string {
-    const keys = key.split('.');
-    let value = this.translations;
-    
-    for (const k of keys) {
-      if (value && value[k]) {
-        value = value[k];
-      } else {
-        return key; // Retourner la clé si la traduction n'existe pas
-      }
-    }
-    
-    return value;
+    await this.loadTranslations(this.currentLang);
+    this.langChangedSubject.next(this.currentLang);
   }
 
   getCurrentLang(): string {
-    return this.currentLang.value;
+    return this.currentLang;
+  }
+
+  async use(lang: string): Promise<void> {
+    if (lang === this.currentLang) return;
+
+    this.currentLang = lang;
+    localStorage.setItem("lang", lang);
+
+    await this.loadTranslations(lang);
+    this.langChangedSubject.next(lang); // 🔥 signal global
+  }
+
+  instant(key: string): string {
+    return (
+      key
+        .split(".")
+        .reduce((obj, k) => (obj ? obj[k] : null), this.translations) || key
+    );
+  }
+
+  private async loadTranslations(lang: string): Promise<void> {
+    const response = await fetch(`/assets/i18n/${lang}.json`);
+    this.translations = await response.json();
   }
 }

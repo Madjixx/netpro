@@ -1,15 +1,15 @@
 <section class="values section" id="valeurs">
   <div class="container">
     <div class="values-header animate-on-scroll">
-      <span class="section-badge">Nos Valeurs</span>
-      <h2>Ce Qui Nous Définit</h2>
+      <span class="section-badge">{{ 'VALUES.BADGE' | translate }}</span>
+      <h2>{{ 'VALUES.TITLE' | translate }}</h2>
       <p class="section-intro">
-        Des engagements forts qui guident chacune de nos interventions et font la différence dans la qualité de nos services.
+        {{ 'VALUES.INTRO' | translate }}
       </p>
     </div>
 
     <div class="values-grid">
-      <div *ngFor="let value of values; let i = index" 
+      <div *ngFor="let value of values; let i = index; trackBy: trackById" 
            class="value-card animate-on-scroll"
            [style.animation-delay.s]="i * 0.15">
         <div class="value-icon">
@@ -52,8 +52,8 @@
             <path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3>Un Engagement de Qualité</h3>
-        <p>Chaque intervention est effectuée selon nos standards les plus élevés, avec des produits professionnels et un personnel qualifié.</p>
+        <h3>{{ 'VALUES.FOOTER_TITLE' | translate }}</h3>
+        <p>{{ 'VALUES.FOOTER_DESC' | translate }}</p>
       </div>
     </div>
   </div>

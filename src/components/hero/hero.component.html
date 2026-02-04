@@ -15,45 +15,45 @@
     <div class="hero-content">
       <div class="hero-badge animate-on-scroll">
         <span class="badge-icon">✨</span>
-        <span>Service Premium</span>
+        <span>{{ 'HERO.BADGE' | translate }}</span>
       </div>
 
       <h1 class="hero-title animate-on-scroll">
-        L'excellence du nettoyage<br>
-        <span class="gradient-text">pour tous vos espaces</span>
+        {{ 'HERO.TITLE_1' | translate }}<br>
+        <span class="gradient-text">{{ 'HERO.TITLE_2' | translate }}</span>
       </h1>
 
       <p class="hero-subtitle animate-on-scroll">
-        Que vous soyez un professionnel, un commerçant ou un particulier,<br>
-        <strong>NetPro Cleaning</strong> apporte la rigueur du luxe à chaque mission.
+        {{ 'HERO.SUBTITLE_1' | translate }}<br>
+        <strong>{{ 'HERO.SUBTITLE_2' | translate }}</strong> {{ 'HERO.SUBTITLE_3' | translate }}
       </p>
 
       <div class="hero-cta animate-on-scroll">
         <button class="btn btn-primary" (click)="scrollToContact()">
-          Demander un Devis
+          {{ 'HERO.CTA_PRIMARY' | translate }}
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
         <button class="btn btn-outline" (click)="scrollToServices()">
-          Découvrir nos services
+          {{ 'HERO.CTA_SECONDARY' | translate }}
         </button>
       </div>
 
       <div class="hero-stats animate-on-scroll">
         <div class="stat-item">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Satisfaction</div>
+          <div class="stat-number">{{ 'HERO.STAT_1_NUMBER' | translate }}</div>
+          <div class="stat-label">{{ 'HERO.STAT_1_LABEL' | translate }}</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <div class="stat-number">24/7</div>
-          <div class="stat-label">Disponibilité</div>
+          <div class="stat-number">{{ 'HERO.STAT_2_NUMBER' | translate }}</div>
+          <div class="stat-label">{{ 'HERO.STAT_2_LABEL' | translate }}</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <div class="stat-number">5★</div>
-          <div class="stat-label">Excellence</div>
+          <div class="stat-number">{{ 'HERO.STAT_3_NUMBER' | translate }}</div>
+          <div class="stat-label">{{ 'HERO.STAT_3_LABEL' | translate }}</div>
         </div>
       </div>
     </div>
@@ -65,8 +65,8 @@
             <path d="M21 10H3M21 10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2M21 10V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h4>Entreprises</h4>
-        <p>Bureaux & Coworking</p>
+        <h4>{{ 'HERO.CARD_1_TITLE' | translate }}</h4>
+        <p>{{ 'HERO.CARD_1_SUBTITLE' | translate }}</p>
       </div>
 
       <div class="visual-card card-2">
@@ -76,8 +76,8 @@
             <path d="M9 22V12h6v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h4>Résidentiel</h4>
-        <p>Standing Premium</p>
+        <h4>{{ 'HERO.CARD_2_TITLE' | translate }}</h4>
+        <p>{{ 'HERO.CARD_2_SUBTITLE' | translate }}</p>
       </div>
 
       <div class="visual-card card-3">
@@ -87,8 +87,8 @@
             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h4>Commerces</h4>
-        <p>Boutiques & Salons</p>
+        <h4>{{ 'HERO.CARD_3_TITLE' | translate }}</h4>
+        <p>{{ 'HERO.CARD_3_SUBTITLE' | translate }}</p>
       </div>
     </div>
   </div>
@@ -97,6 +97,6 @@
     <div class="mouse">
       <div class="wheel"></div>
     </div>
-    <span>Défiler</span>
+    <span>{{ 'HERO.SCROLL' | translate }}</span>
   </div>
 </section>
