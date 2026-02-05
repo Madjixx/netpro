@@ -7,7 +7,7 @@ export class EmailService {
   
   async sendQuoteRequest(formData: any): Promise<boolean> {
     try {
-      const formUrl = 'https://formsubmit.co/contact.netprocleaning@gmail.com';
+      const formUrl = 'https://formsubmit.co/contact.contact@netprocleaning.be';
       
       const formBody = new FormData();
       formBody.append('name', formData.name);
