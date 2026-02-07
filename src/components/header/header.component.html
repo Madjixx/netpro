@@ -2,10 +2,14 @@
   <div class="container">
     <nav class="navbar">
       <div class="logo">
-        <div class="logo-icon">
-        <img src="assets/logo.png" alt="NetPro Cleaning Logo">
+        <div class="logo-icon logo-desktop">
+          <img src="assets/logo.png" alt="NetPro Cleaning Logo">
         </div>
-    </div>
+        <div class="logo-icon logo-mobile">
+          <img src="assets/logo2.png" alt="NetPro Cleaning Logo">
+        </div>
+      </div>
+
       <ul class="nav-menu" [class.active]="isMobileMenuOpen">
         <li><a (click)="scrollToSection('accueil')" class="nav-link">{{ 'HEADER.HOME' | translate }}</a></li>
         <li><a (click)="scrollToSection('a-propos')" class="nav-link">{{ 'HEADER.ABOUT' | translate }}</a></li>
@@ -18,8 +22,8 @@
         <!-- Language Selector -->
         <div class="language-selector" (click)="toggleLangMenu()">
           <button class="lang-button">
-            <span class="flag"><img width="20px" src="assets/{{getCurrentLanguage()?.flag}}.jpg" alt=""></span>
-            <span class="lang-code">{{ getCurrentLanguage()?.code?.toUpperCase() }}</span>
+            <span class="flag">{{ getCurrentLanguage()?.flag }}</span>
+            <span class="lang-code">{{ getCurrentLanguage()?.code |uppercase }}</span>
             <svg class="chevron" [class.open]="isLangMenuOpen" viewBox="0 0 24 24" fill="none">
               <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -30,7 +34,7 @@
                     class="lang-option" 
                     [class.active]="lang.code === currentLang"
                     (click)="changeLanguage(lang.code); $event.stopPropagation()">
-              <span class="flag"> <img width="20px" src="assets/{{lang.flag}}.jpg" alt=""> </span>
+              <span class="flag">{{ lang.flag }}</span>
               <span class="lang-name">{{ lang.name }}</span>
             </button>
           </div>

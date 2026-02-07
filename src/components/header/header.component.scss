@@ -35,9 +35,23 @@
   }
 }
 
-.logo-icon img{
-  width: 165px;
-  height: 61px;
+.logo-icon {
+  height: 50px;
+  
+  img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(29, 161, 242, 0.2));
+  }
+}
+
+.logo-desktop {
+  display: block;
+}
+
+.logo-mobile {
+  display: none;
 }
 
 .logo-text {
@@ -305,8 +319,15 @@
     font-size: 1.5rem;
   }
 
-  .logo-icon img{
-    width: 35px;
+  .logo-desktop {
+    display: none;
+  }
+
+  .logo-mobile {
+    display: block;
+  }
+
+  .logo-icon {
     height: 45px;
   }
 }
@@ -321,8 +342,7 @@
     font-size: 1.3rem;
   }
 
-  .logo-icon img{
-    width: 30px;
+  .logo-icon {
     height: 40px;
   }
 

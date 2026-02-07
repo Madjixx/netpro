@@ -30,7 +30,7 @@ export class TranslationService {
     localStorage.setItem("lang", lang);
 
     await this.loadTranslations(lang);
-    this.langChangedSubject.next(lang); // 🔥 signal global
+    this.langChangedSubject.next(lang);
   }
 
   instant(key: string): string {
@@ -42,7 +42,7 @@ export class TranslationService {
   }
 
   private async loadTranslations(lang: string): Promise<void> {
-    const response = await fetch(`/assets/i18n/${lang}.json`);
+    const response = await fetch(`./assets/i18n/${lang}.json`);
     this.translations = await response.json();
   }
 }
