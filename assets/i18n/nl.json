@@ -5,7 +5,7 @@
     "SERVICES": "Diensten",
     "VALUES": "Onze Waarden",
     "CONTACT": "Contact",
-    "PHONE": "04 65 97 28 62"
+    "PHONE": "04 77 20 99 89"
   },
   "HERO": {
     "BADGE": "Premium Service",
@@ -114,7 +114,7 @@
     "ROLE": "Oprichter & Directeur",
     "PHONE_LABEL": "Telefoon",
     "EMAIL_LABEL": "E-mail",
-    "WEBSITE_LABEL": "Website",
+    "ADDRESS_LABEL": "Adresse",
     "AVAILABILITY_LABEL": "Beschikbaarheid",
     "AVAILABILITY": "24/7 op aanvraag",
     "FEATURE_1": "Gratis Offerte",

@@ -5,7 +5,7 @@
     "SERVICES": "Services",
     "VALUES": "Nos Valeurs",
     "CONTACT": "Contact",
-    "PHONE": "04 65 97 28 62"
+    "PHONE": "04 77 20 99 89"
   },
   "HERO": {
     "BADGE": "Service Premium",
@@ -114,7 +114,7 @@
     "ROLE": "Fondatrice & Directrice",
     "PHONE_LABEL": "Téléphone",
     "EMAIL_LABEL": "Email",
-    "WEBSITE_LABEL": "Site Web",
+    "ADDRESS_LABEL": "Adresse",
     "AVAILABILITY_LABEL": "Disponibilité",
     "AVAILABILITY": "24/7 sur demande",
     "FEATURE_1": "Devis Gratuit",
